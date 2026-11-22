@@ -1,0 +1,78 @@
+:root{--ac:#2F3CF0}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;font-size:14px;background:#F4F5F1;color:#12151A}
+a{color:#2F3CF0}a:hover{color:#1B24B8}
+html{scroll-behavior:smooth}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ac,#2F3CF0);outline-offset:3px}
+.nl{background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat;padding-bottom:3px;transition:background-size .3s ease}
+.nl:hover{background-size:100% 2px;color:#12151A}
+.btn,.cards > * > a{display:inline-block;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s ease}
+.btn::after,.cards > * > a::after{content:"→";display:inline-block;margin-left:10px;transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.btn:hover,.cards > * > a:hover{transform:translateY(-3px);box-shadow:0 12px 24px color-mix(in srgb,var(--ac,#2F3CF0) 35%,transparent)}
+.btn:hover::after,.cards > * > a:hover::after{transform:translateX(6px)}
+.btn:active,.cards > * > a:active{transform:none;box-shadow:none}
+.svcs > *{position:relative}
+.svcs > *::before{content:"";position:absolute;left:0;right:0;top:-1px;height:3px;background:var(--ac,#2F3CF0);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.svcs > *:hover::before{transform:scaleX(1)}
+.svcs > * > *{transition:transform .35s cubic-bezier(.2,.7,.2,1),color .3s}
+.svcs > *:hover > *{transform:translateX(12px)}
+.svcs > *:hover > h3{color:var(--ac,#2F3CF0)}
+.steps > *,.faqs > *{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.steps > *:hover,.faqs > *:hover{transform:translateX(8px)}
+.steps > * > div:first-child{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.steps > *:hover > div:first-child{transform:scale(1.3);transform-origin:left center}
+.faqs > * h3{transition:color .3s}
+.faqs > *:hover h3{color:var(--ac,#2F3CF0)}
+.cards > *{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease}
+.cards > *:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(18,21,26,.12)}
+.incl > *{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.incl > *:hover{transform:translateY(-4px)}
+input,select,textarea{transition:box-shadow .2s ease,transform .2s ease}
+input:focus,select:focus,textarea:focus{outline:none;box-shadow:0 0 0 4px color-mix(in srgb,var(--ac,#2F3CF0) 28%,transparent);transform:translateY(-1px)}
+input[type=checkbox]{accent-color:var(--ac,#2F3CF0)}
+.hl{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--ac,#2F3CF0) 28%,transparent) 62%) no-repeat 0 0/100% 100%}
+.mq-set{display:inline-flex;align-items:center;flex:none}
+.mq-set i{display:inline-block;width:9px;height:9px;background:#fff;margin:0 30px;transform:rotate(45deg)}
+.play::after{content:"";position:absolute;inset:-2px;border:2px solid #fff;border-radius:50%;opacity:0}
+.rg{position:absolute;inset:0;border:1px solid rgba(255,255,255,.4);border-radius:50%;opacity:0}
+@keyframes up{from{opacity:0;translate:0 36px}to{opacity:1;translate:0 0}}
+@keyframes rv{from{opacity:0;translate:0 56px}to{opacity:1;translate:0 0}}
+@keyframes rvout{from{opacity:1;translate:0 0}to{opacity:0;translate:0 -32px}}
+@keyframes drift{from{translate:-14px 0}to{translate:14px 0}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes underline{from{background-size:0% 100%}to{background-size:100% 100%}}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.7);opacity:0}}
+@keyframes tile{0%,100%{translate:0 0}50%{translate:0 -6px}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes ring{0%{transform:scale(.25);opacity:.7}100%{transform:scale(1);opacity:0}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes shrink{to{padding-top:10px;padding-bottom:10px}}
+@keyframes pxa{to{translate:0 60px}}
+@keyframes pxb{to{translate:0 -70px}}
+@media (prefers-reduced-motion:no-preference){
+.hero1 > *{animation:up .9s cubic-bezier(.2,.7,.2,1) both}
+.hero1 > *:nth-child(2){animation-delay:.12s}
+.hero1 > *:nth-child(3){animation-delay:.24s}
+.hero1 > *:nth-child(4){animation-delay:.36s}
+.heroart{animation:up 1s cubic-bezier(.2,.7,.2,1) .3s both}
+.floaty{animation:floaty 6s ease-in-out infinite}
+.hl{animation:underline 1s cubic-bezier(.6,0,.2,1) .9s both}
+.play::after{animation:pulse 2.2s ease-out infinite}
+.tile{animation:tile 3s ease-in-out infinite}
+.tile:nth-child(2){animation-delay:.4s}
+.tile:nth-child(3){animation-delay:.8s}
+.mq-track{animation:marquee 32s linear infinite}
+.mq:hover .mq-track{animation-play-state:paused}
+.rg{animation:ring 7s linear infinite}
+.rg:nth-child(2){animation-delay:2.3s}
+.rg:nth-child(3){animation-delay:4.6s}
+@supports (animation-timeline:view()){
+.rv,.svcs > *,.steps > *,.cards > *,.incl > *,.cta > *,.formcard > *,.side > *,.faqs > *{animation:rv linear both,rvout linear forwards;animation-timeline:view(),view();animation-range:entry 0% entry 55%,exit 40% exit 100%}
+.cards > *:nth-child(2){animation-range:entry 10% entry 65%,exit 40% exit 100%}
+.cards > *:nth-child(3){animation-range:entry 20% entry 75%,exit 40% exit 100%}
+h2{animation:drift linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+.progress{animation:grow linear both;animation-timeline:scroll(root)}
+.hd{animation:shrink linear both;animation-timeline:scroll(root);animation-range:0px 140px}
+.pxa{animation:pxa linear both;animation-timeline:scroll(root);animation-range:0px 800px}
+.pxb{animation:pxb linear both;animation-timeline:scroll(root);animation-range:0px 800px}
+}
+}
